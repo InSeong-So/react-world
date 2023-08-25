@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@solidjs/router':
+    specifier: ^0.8.3
+    version: 0.8.3(solid-js@1.7.11)
   solid-js:
     specifier: ^1.7.11
     version: 1.7.11
@@ -919,6 +922,14 @@ packages:
     dependencies:
       solid-js: 1.7.11
     dev: true
+
+  /@solidjs/router@0.8.3(solid-js@1.7.11):
+    resolution: {integrity: sha512-oJuqQo10rVTiQYhe1qXIG1NyZIZ2YOwHnlLc8Xx+g/iJhFCJo1saLOIrD/Dkh2fpIaIny5ZMkz1cYYqoTYGJbg==}
+    peerDependencies:
+      solid-js: ^1.5.3
+    dependencies:
+      solid-js: 1.7.11
+    dev: false
 
   /@trivago/prettier-plugin-sort-imports@4.2.0(prettier@3.0.2):
     resolution: {integrity: sha512-YBepjbt+ZNBVmN3ev1amQH3lWCmHyt5qTbLCp/syXJRu/Kw2koXh44qayB1gMRxcL/gV8egmjN5xWSrYyfUtyw==}
