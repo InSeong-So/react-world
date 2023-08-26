@@ -1,25 +1,32 @@
 import type { Component } from 'solid-js';
-import styles from './App.module.css';
-import logo from './logo.svg';
+import { Route, Router, Routes } from '@solidjs/router';
+import ArticlePage from '@/pages/article/[slug]';
+import EditorPage from '@/pages/editor';
+import EditArticlePage from '@/pages/editor/[slug]';
+import HomePage from '@/pages/home';
+import LoginPage from '@/pages/login';
+import ProfilePage from '@/pages/profile/[username]';
+import FavoriteProfilePage from '@/pages/profile/[username]/favorites';
+import RegisterPage from '@/pages/register';
+import SettingPage from '@/pages/settings';
 
 const App: Component = () => {
   return (
-    <div class={styles.App}>
-      <header class={styles.header}>
-        <img src={logo} class={styles.logo} alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          class={styles.link}
-          href="https://github.com/solidjs/solid"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn Solid
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" component={HomePage} />
+        <Route path="/login" component={LoginPage} />
+        <Route path="/register" component={RegisterPage} />
+        <Route path="/settings" component={SettingPage} />
+        <Route path="/profile/:username" component={ProfilePage}>
+          <Route path="/favorite" component={FavoriteProfilePage} />
+        </Route>
+        <Route path="/article/:slug" component={ArticlePage} />
+        <Route path="/editor" component={EditorPage}>
+          <Route path="/:slug" component={EditArticlePage} />
+        </Route>
+      </Routes>
+    </Router>
   );
 };
 
