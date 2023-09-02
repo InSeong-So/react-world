@@ -1,6 +1,7 @@
 import path from 'path';
 import { defineConfig } from 'vite';
 import solidPlugin from 'vite-plugin-solid';
+import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
 
 // import devtools from 'solid-devtools/vite';
 
@@ -12,6 +13,7 @@ export default defineConfig({
     */
     // devtools(),
     solidPlugin(),
+    vanillaExtractPlugin(),
   ],
   server: {
     port: 3000,
