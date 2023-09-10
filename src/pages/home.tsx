@@ -1,10 +1,10 @@
-import { useSearchParams } from '@solidjs/router';
 import { createResource, For, Show } from 'solid-js';
 import { getArticleList } from '@/api/article';
 import { LoadingSpinner, LoadingSpinnerContainer } from '@/components/loading-spinner';
+import { PageTransition } from '@/components/page-transition';
 import { Pagination } from '@/components/pagination';
 import { Sidebar } from '@/templates/home/sidebar';
-import { Motion } from '@motionone/solid';
+import { useSearchParams } from '@solidjs/router';
 
 // TOOD-REF: https://blog.logrocket.com/animating-solidjs-apps-motion-one/
 
@@ -13,11 +13,7 @@ const HomePage = () => {
   const [data] = createResource(params, getArticleList);
 
   return (
-    <Motion.div
-      animate={{
-        opacity: [0, 1],
-      }}
-    >
+    <PageTransition>
       <nav class="navbar navbar-light">
         <div class="container">
           <a class="navbar-brand" href="/">
@@ -129,7 +125,7 @@ const HomePage = () => {
           </span>
         </div>
       </footer>
-    </Motion.div>
+    </PageTransition>
   );
 };
 

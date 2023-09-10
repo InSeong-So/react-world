@@ -1,3 +1,4 @@
+import { PageTransition } from '@/components/page-transition';
 import { useParams } from '@solidjs/router';
 
 const ArticlePage = () => {
@@ -6,7 +7,7 @@ const ArticlePage = () => {
   console.log(params.slug);
 
   return (
-    <>
+    <PageTransition type="book">
       <nav class="navbar navbar-light">
         <div class="container">
           <a class="navbar-brand" href="/">
@@ -179,7 +180,7 @@ const ArticlePage = () => {
           </span>
         </div>
       </footer>
-    </>
+    </PageTransition>
   );
 };
 
